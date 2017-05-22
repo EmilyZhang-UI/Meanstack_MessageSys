@@ -7,16 +7,16 @@ var session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session);
 
 var store = new MongoDBStore({
-	uri:'mongodb://localhost:27017/assignment8',
+	uri:'mongodb://MONGOURL',
 	collection:'users_session'
 });
-var url = 'mongodb://localhost:27017/assignment8';
+var url = 'mongodb://MONGOURL';
 
 var app = express();
 
 app.use(
 	session({
-		secret:'marlabs_sess_secret_key',
+		secret:'YOURSECRETKEY',
 		resave:true,
 		saveUninitialized:true,
 		store:store
