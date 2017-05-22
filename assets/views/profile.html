@@ -1,0 +1,56 @@
+<div id="profileDiv" ng-controller="profileCtrl">
+
+    <table id="profile_show_table" border="2" style="border-collapse: collapse;" cellpadding="3" ng-show="table_flag">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Location</th>
+            <th>Contact Number</th>
+        </tr>
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.loc}}</td>
+            <td>{{user.contactnumber}}</td>
+        </tr> 
+    </table>
+    <button id="showEditBtn" ng-click="showEditForm()" ng-show="table_flag">Edit</button>
+    <table id="profileTable" ng-hide="table_flag">
+    	<tr>
+    		<td>Name:</td>
+            <td><input id="edit_name" type="text" value="{{user.name}}"><span>{{name_err}}</span></td>
+    	</tr>
+    	<tr>
+            <td>Email:</td>
+            <td><input id="edit_email" type="text" value="{{user.email}}"><span>{{email_err}}</span></td>
+    	</tr>
+        <!-- <tr>
+            <td>Username:</td>
+            <td><input id="edit_username" type="text" value="{{user.username}}"><span>{{username_err}}</span></td>
+        </tr> -->
+        <tr>
+            <td>Password:</td>
+            <td><input id="edit_password" type="text" value="{{user.password}}"><span>{{password_err}}</span></td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td><input id="edit_loc" type="text" value="{{user.loc}}"><span>{{loc_err}}</span></td>
+        </tr>
+        <tr>
+            <td>Contact Number:</td>
+            <td><input id="edit_contactnumber" type="text" value="{{user.contactnumber}}"><span>{{contactnum_err}}</span></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Submit" ng-click="editUser()"></td>    
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Cancel" ng-click="cancel()"></td>    
+        </tr>
+    </table>
+
+</div>
+            

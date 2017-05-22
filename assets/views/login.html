@@ -1,0 +1,9 @@
+<div id="backgroundDiv" ng-controller="loginCtrl">
+    <div id="loginDiv">
+        <div class="loginItem"><label>Username:</label><input type="text" name="username" placeholder="Please input username" ng-model='username'></div>
+        <div class="loginItem"><label>Password:</label><input type="password" name="password" placeholder="Please input password" ng-model='password'></div>
+        <div><button ng-click="login()">Login</button><button ng-click="register()">Register</button></div>
+        <p style="color:red">{{error}}</p>
+    </div>
+
+</div>

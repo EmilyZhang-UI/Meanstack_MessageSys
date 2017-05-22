@@ -1,0 +1,55 @@
+<div class="container" ng-controller="messageCtrl">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" ng-click='switchTab(1)'>Inbox Message</a></li>
+    <li><a data-toggle="tab" ng-click='switchTab(2)'>Sent Message</a></li>
+    <li><a data-toggle="tab" ng-click='switchTab(3)'>Compose</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="inbox" class="tab-pane fade in active" ng-show='tab1'>
+  	    <table id="messageList" cellpadding="0">
+  		    <tr>
+  		      <th>Important</th>
+  		    	<th>Title</th>
+  		    	<th>Sender</th>
+  		    	<th>Content</th>
+  		    	<th>Action</th>
+  		    </tr>
+        
+  			<tr ng-repeat="message in messages track by $index">
+  			  <!-- <td><span id="{{$index}}" ng-click="markMsg($index)">&#9734;</span></td> -->
+  				<td style="font-size:28px;"><star-sign index="$index" messlength="{{user.messages}}"></star-sign></td>
+          <td>{{message.title}}</td>
+  				<td>{{message.sender}}</td>
+  				<td>{{message.content}}</td>
+  				<td><button ng-click="viewMsg($index)">View</button><button ng-click="deleteMsg($index)">Delete</button></td>
+  			</tr>
+  		</table>
+    </div>
+
+    <div id="outbox" class="tab-pane fade in active" ng-show='tab2'>
+      <table id="sendMessageList" cellpadding="1">
+      	  <tr>
+      	  	<th>Title</th>
+      	  	<th>To</th>
+      	  	<th>Content</th>
+      	  </tr>
+      	  <tr ng-repeat="outmessage in outmessages">
+      	  	<td>{{outmessage.title}}</td>
+      	  	<td>{{outmessage.to}}</td>
+      	  	<td>{{outmessage.content}}</td>
+      	  </tr>
+      </table>
+    </div>
+
+    <div id="compose" class="tab-pane fade in active" ng-show='tab3'>
+    <form ng-submit="sendMsg()">
+        <div class="composeDescrib"><label>Title:</label><input id="sendtitle" type="text" placeholder="Please input title" required /></div>
+        <div class="composeDescrib"><label>To:</label><input id="sendto" type="text" placeholder="Please input the receiver's name" required /></div>
+        <div class="composeDescrib"><label class='contentLabel'>Content:</label><textarea id="sendcontent" rows="10" placeholder="Please input content" required></textarea></div>
+        <div class="btnMargin"><input type="submit" value="Send"></div>
+    </form>
+    </div>
+
+  </div>
+
+</div>
